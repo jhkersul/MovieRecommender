@@ -1,3 +1,7 @@
+/**
+ * You must rename this file to config.js after setting everything up
+ */
+
 export default {
   TMDB_API_V3_KEY: 'YOUR_API_V3_KEY_GOES_HERE',
   API_TMDB_URL: 'https://api.themoviedb.org/3',
