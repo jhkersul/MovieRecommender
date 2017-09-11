@@ -20,8 +20,14 @@ export const getMovieById = tmdbId => (
     };
 
     request(GET, `${API_TMDB_URL}/movie/${tmdbId}`, params)
-      .then(response => resolve(response))
+      .then((response) => {
+        // If the response has a status_code, it means it's an error
+        if (response.status_code) {
+          reject(response);
+          return;
+        }
+        resolve(response);
+      })
       .catch(error => reject(error));
   })
 );
-
