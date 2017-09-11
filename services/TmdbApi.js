@@ -1,5 +1,6 @@
 import config from '../config';
 import { request, GET } from './Network';
+import { parseMovie } from '../models/TmdbMovie';
 
 /**
  * The TMDB API Key from config file
@@ -26,7 +27,9 @@ export const getMovieById = tmdbId => (
           reject(response);
           return;
         }
-        resolve(response);
+        // Parsing the response to a tmdbMovie
+        const tmdbMovie = parseMovie(response);
+        resolve(tmdbMovie);
       })
       .catch(error => reject(error));
   })
